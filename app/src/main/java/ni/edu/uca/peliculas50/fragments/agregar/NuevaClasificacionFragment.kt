@@ -37,14 +37,23 @@ class NuevaClasificacionFragment : Fragment() {
         val abrev = fBinding.itemAbreviacion.text.toString()
         val nomb = fBinding.itemDescripcion.text.toString()
 
-        //Crear objeto
-        val clasif = ClasificacionEntity(0, abrev,true ,nomb)
+        if(abrev.isNotEmpty() && nomb.isNotEmpty())
+        {
+            //Crear objeto
+            val clasif = ClasificacionEntity(0, abrev,true ,nomb)
 
-        //Agregar nuevo usuario
-        viewModel.agregarClasificacion(clasif)
-        Toast.makeText(requireContext(), "Registro guardado",
-            Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.ir_lista_Clasificacion)
+            //Agregar nuevo usuario
+            viewModel.agregarClasificacion(clasif)
+            Toast.makeText(requireContext(), "Registro guardado",
+                Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.ir_lista_Clasificacion)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
+
+
     }
 }
 

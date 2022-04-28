@@ -44,14 +44,21 @@ class ActualizarClasificacionFragment : Fragment() {
         val abrev = fBinding.itemAbreviacion.text.toString()
         val nomb = fBinding.itemDescripcion.text.toString()
 
-        //Crear el objeto
-        val clasif =
-            ClasificacionEntity(args.currentClasificacion.idClasificacion, abrev, true, nomb)
-        //Actualizar
-        viewModel.actualizarClasificacion(clasif)
-        Toast.makeText(requireContext(), "Registro actualizado",
-            Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.actualizar_Lista)
+        if(abrev.isNotEmpty() && nomb.isNotEmpty())
+        {
+            //Crear el objeto
+            val clasif =
+                ClasificacionEntity(args.currentClasificacion.idClasificacion, abrev, true, nomb)
+            //Actualizar
+            viewModel.actualizarClasificacion(clasif)
+            Toast.makeText(requireContext(), "Registro actualizado",
+                Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.actualizar_Lista)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater:
     MenuInflater) {

@@ -44,14 +44,23 @@ class ActualizarGeneroFragment : Fragment() {
     private fun GuardarCambios() {
         val nomb = fBinding.itemNombreGenero.text.toString()
 
-        //Crear el objeto
-        val gen =
-            GeneroEntity(args.currentGenero.idGenero, true, nomb)
-        //Actualizar
-        viewModel.actualizarGenero(gen)
-        Toast.makeText(requireContext(), "Registro actualizado",
-            Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.actualizar_ListaGen)
+        if (nomb.isNotEmpty())
+        {
+            //Crear el objeto
+            val gen =
+                GeneroEntity(args.currentGenero.idGenero, true, nomb)
+            //Actualizar
+            viewModel.actualizarGenero(gen)
+            Toast.makeText(requireContext(), "Registro actualizado",
+                Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.actualizar_ListaGen)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
+
+
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater:
     MenuInflater

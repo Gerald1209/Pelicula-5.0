@@ -37,14 +37,23 @@ class NuevoGeneroFragment : Fragment() {
         //val baseDatos = MainBaseDatos.getDataBase(this)
         val nomb = fBinding.itemNombreGenero.text.toString()
 
-        //Crear objeto
-        val gen = GeneroEntity(0,true ,nomb)
+        if (nomb.isNotEmpty())
+        {
+            //Crear objeto
+            val gen = GeneroEntity(0,true ,nomb)
 
-        //Agregar nuevo usuario
-        viewModel.agregarGenero(gen)
-        Toast.makeText(requireContext(), "Registro guardado",
-            Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.ir_lista_Genero)
+            //Agregar nuevo usuario
+            viewModel.agregarGenero(gen)
+            Toast.makeText(requireContext(), "Registro guardado",
+                Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.ir_lista_Genero)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
+
+
     }
 }
 
