@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/selectBotonFragment">
+
+    <fragment
+        android:id="@+id/selectBotonFragment"
+        android:name="ni.edu.uca.peliculas50.fragments.SelectBotonFragment"
+        android:label="fragment_select_boton"
+        tools:layout="@layout/fragment_select_boton" >
+        <action
+            android:id="@+id/De_Botones_a_Lista_Clasificacion"
+            app:destination="@id/listaClasificacionFragment" />
+        <action
+            android:id="@+id/De_Botones_a_Lista_Genero"
+            app:destination="@id/listaGeneroFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listaClasificacionFragment"
+        android:name="ni.edu.uca.peliculas50.fragments.lista.ListaClasificacionFragment"
+        android:label="Lista de Clasificacion"
+        tools:layout="@layout/fragment_lista_clasificacion" >
+        <action
+            android:id="@+id/nueva_Clasificacion"
+            app:destination="@id/nuevaClasificacionFragment" />
+        <action
+            android:id="@+id/actualizar_Clasificacion"
+            app:destination="@id/actualizarClasificacionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nuevaClasificacionFragment"
+        android:name="ni.edu.uca.peliculas50.fragments.agregar.NuevaClasificacionFragment"
+        android:label="Nueva Clasificacion"
+        tools:layout="@layout/fragment_nueva_clasificacion" >
+        <action
+            android:id="@+id/ir_lista_Clasificacion"
+            app:destination="@id/listaClasificacionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actualizarClasificacionFragment"
+        android:name="ni.edu.uca.peliculas50.fragments.actualizar.ActualizarClasificacionFragment"
+        android:label="Actualizar Clasificacion"
+        tools:layout="@layout/fragment_actualizar_clasificacion" >
+        <action
+            android:id="@+id/actualizar_Lista"
+            app:destination="@id/listaClasificacionFragment" />
+        <argument
+            android:name="currentClasificacion"
+            app:argType="ni.edu.uca.peliculas50.bd.entidades.ClasificacionEntity" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaGeneroFragment"
+        android:name="ni.edu.uca.peliculas50.fragments.lista.ListaGeneroFragment"
+        android:label="fragment_lista_genero"
+        tools:layout="@layout/fragment_lista_genero" >
+        <action
+            android:id="@+id/nuevo_Genero"
+            app:destination="@id/nuevoGeneroFragment" />
+        <action
+            android:id="@+id/actualizar_Genero"
+            app:destination="@id/actualizarGeneroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nuevoGeneroFragment"
+        android:name="ni.edu.uca.peliculas50.fragments.agregar.NuevoGeneroFragment"
+        android:label="fragment_nuevo_usuario"
+        tools:layout="@layout/fragment_nuevo_genero" >
+        <action
+            android:id="@+id/ir_lista_Genero"
+            app:destination="@id/listaGeneroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actualizarGeneroFragment"
+        android:name="ni.edu.uca.peliculas50.fragments.actualizar.ActualizarGeneroFragment"
+        android:label="fragment_actualizar_genero"
+        tools:layout="@layout/fragment_actualizar_genero" >
+        <action
+            android:id="@+id/actualizar_ListaGen"
+            app:destination="@id/listaGeneroFragment" />
+        <argument
+            android:name="currentGenero"
+            app:argType="ni.edu.uca.peliculas50.bd.entidades.GeneroEntity" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ClFila"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/TvIdClasificacion"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TvAbreviatura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/TvIdClasificacion"
+            android:layout_toRightOf="@+id/TvIdClasificacion"
+            android:text="PG"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/TvNombres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contenido para toda la familia"
+            android:layout_below="@+id/TvAbreviatura"
+            android:layout_toEndOf="@id/TvIdClasificacion"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
